@@ -1,0 +1,196 @@
+/* 正賽：轉播車載鏡頭風格 HUD */
+.race-screen{--hud-font:"Bahnschrift","DIN Alternate","Arial Narrow",system-ui,"Microsoft JhengHei",sans-serif;--hud-bg:#05080cdd;--hud-line:#ffffff1f;--hud-red:#e10600;position:relative;height:100%;min-height:0;overflow:hidden;background:#0b0f14;font-family:var(--hud-font);user-select:none}
+.cockpit{position:absolute;inset:0;width:100%;height:100%;display:block}
+.race-hud{position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse 75% 70% at 50% 46%,transparent 55%,#00000038 80%,#0000008c 100%)} /* 鏡頭暗角 */
+.race-hud>*{pointer-events:auto}
+.race-hud button{font-family:var(--hud-font)}
+
+/* 計時塔 */
+.timing-tower{display:flex;flex-direction:column;max-height:calc(100% - 32px);position:absolute;top:16px;left:16px;width:208px;background:var(--hud-bg);color:#fff;border-radius:3px;overflow:hidden;box-shadow:0 6px 24px #0007;font-size:14px}
+.tt-head{flex-shrink:0;display:flex;align-items:center;gap:10px;padding:8px 10px;border-bottom:1px solid var(--hud-line)}
+.tt-logo{font-weight:900;font-style:italic;letter-spacing:-.04em;font-size:20px;background:var(--hud-red);color:#fff;padding:0 7px;border-radius:2px;line-height:1.35}
+.tt-lap{flex:1;font-size:13px;letter-spacing:.06em}.tt-lap b{font-size:20px;margin-left:2px}.tt-lap small{opacity:.75}
+.tt-toggle{min-height:26px!important;padding:0 8px!important;background:transparent!important;border:0!important;color:#fff!important;font-size:14px}
+.tt-flag{flex-shrink:0;font-weight:800;letter-spacing:.08em;text-align:center;padding:4px 6px;font-size:13px;background:#0f8a3d;color:#fff;transition:background .3s}
+.tt-flag[data-kind=yellow]{background:#ffd400;color:#111;animation:flash 1s steps(2) infinite}
+.tt-flag[data-kind=wet]{background:#1d6fd6}.tt-flag[data-kind=white]{background:#f2f2f2;color:#111}
+.tt-flag[data-kind=start]{background:#c4171c}.tt-flag[data-kind=chequered]{background:repeating-conic-gradient(#fff 0 25%,#111 0 50%) 0 0/14px 14px;color:#fff;text-shadow:0 0 4px #000,0 0 2px #000}
+.timing-list{min-height:0;overflow:hidden}
+.timing-row{display:grid;grid-template-columns:24px 4px 1fr auto;align-items:center;gap:7px;height:26px;padding:0 10px 0 0;border-bottom:1px solid #ffffff0a}
+.tt-pos{text-align:center;font-size:13px;height:100%;display:grid;place-items:center;background:#ffffff0d}
+.timing-row:first-child .tt-pos{background:var(--hud-red)}
+.tt-team{width:4px;height:15px;background:var(--team)}
+.tt-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;letter-spacing:.04em}
+.tt-gap{font-size:12px;opacity:.88;text-align:right;font-variant-numeric:tabular-nums}
+.timing-row.player{background:#fff!important;color:#0b0f14!important}.timing-row.player .tt-pos{background:var(--team);color:#fff}
+.timing-row.pit .tt-gap{color:#5ad1ff;font-weight:800}.timing-row.out{opacity:.45}.timing-row.out .tt-gap{color:#ff6b6b}
+.timing-tower.collapsed .timing-list{display:none}
+
+/* 右上控制與台標 */
+.race-controls{position:absolute;top:16px;right:16px;display:flex;gap:4px}
+.race-controls button{min-height:34px;padding:4px 12px;border-radius:3px;background:var(--hud-bg);border:1px solid var(--hud-line);color:#fff;font-size:14px;letter-spacing:.04em}
+.race-controls button.active{background:#fff;color:#0b0f14;border-color:#fff}
+.tv-bug{position:absolute;top:64px;right:20px;font:italic 900 34px/1 var(--hud-font);letter-spacing:-.05em;color:#ffffffd9;text-shadow:0 2px 8px #0008;pointer-events:none}
+.tv-bug span{font-style:normal;font-weight:700;font-size:28px;margin-left:6px;letter-spacing:0}
+
+/* 賽事管制訊息與決策卡（上方中央，只遮住天空與 Halo 頂部） */
+.race-control{position:absolute;top:16px;left:50%;transform:translate(-50%,-8px);max-width:min(560px,calc(100% - 560px));padding:6px 16px 6px 12px;background:var(--hud-bg);color:#fff;border-left:4px solid #ffd400;font-size:14px;letter-spacing:.03em;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.race-control::before{content:"賽事管制";font-weight:800;color:#ffd400;margin-right:10px;font-size:12px;letter-spacing:.1em}
+.race-control.visible{opacity:1;transform:translate(-50%,0)}
+.decision-host{position:absolute;top:58px;left:50%;transform:translateX(-50%);width:min(520px,calc(100% - 520px));z-index:5}
+.decision-card{background:#05080ce8;color:#fff;border-radius:3px;overflow:hidden;box-shadow:0 10px 40px #000a;animation:dropIn .22s ease-out;border-top:3px solid #ffd400}
+.decision-card.urgency-high{border-top-color:var(--hud-red)}.decision-card.urgency-low{border-top-color:#5ad1ff}
+.dc-head{display:flex;align-items:center;gap:10px;padding:8px 14px 0;font-size:12px;letter-spacing:.1em}
+.dc-tag{background:#ffffff1a;padding:2px 8px;font-weight:800}.dc-lap{opacity:.7;flex:1}
+.dc-time{font-size:22px;letter-spacing:0;font-variant-numeric:tabular-nums}.hurry .dc-time{color:#ff4d4d;animation:flash .5s steps(2) infinite}
+.decision-card h2{font-size:20px;margin:4px 14px 2px;letter-spacing:.02em}
+.decision-card p{margin:0 14px 8px;font-size:13px;line-height:1.5;opacity:.85}
+.dc-bar{height:5px;background:#ffffff1f}.dc-bar>div{height:100%;background:#ffd400;transform-origin:left;transition:transform .1s linear}.hurry .dc-bar>div{background:#ff4d4d}
+.dc-choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:#ffffff14}
+.dc-choice{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:8px;text-align:left;border:0;border-radius:0;background:#0b1118;color:#fff;padding:10px 12px;min-height:58px;border-bottom:3px solid var(--risk)}
+.dc-choice:hover{background:#1a2430}
+.dc-choice kbd{grid-row:span 2;align-self:center;font:800 14px var(--hud-font);width:24px;height:24px;display:grid;place-items:center;border:1px solid #ffffff55;border-radius:3px}
+.dc-choice strong{font-size:15px;letter-spacing:.02em}.dc-choice small{font-size:11px;opacity:.75;letter-spacing:.04em}
+.dc-choice.default small::after{content:" · 逾時預設";color:#ffd400}
+.risk-low{--risk:#3ccf7a}.risk-mid{--risk:#ffd400}.risk-high{--risk:#ff4d4d}
+.race-result{position:absolute;top:58px;left:50%;transform:translateX(-50%);width:min(520px,calc(100% - 520px));padding:10px 16px;background:#05080ce8;color:#fff;border-left:4px solid #fff;font-size:14px;line-height:1.55;opacity:0;transition:opacity .25s;pointer-events:none;z-index:4}
+.race-result.visible{opacity:1}.race-result.success{border-left-color:#3ccf7a}.race-result.failed{border-left-color:#ff4d4d}
+
+/* 右側無線電卡 */
+.radio-card{position:absolute;right:16px;top:118px;width:250px;color:#fff;background:var(--hud-bg);border-radius:3px;overflow:hidden;box-shadow:0 6px 24px #0007;transition:opacity .4s}
+.radio-card:not(.live):not(.open){opacity:.55}
+.rc-title{display:flex;flex-direction:column;align-items:flex-end;padding:8px 12px 4px;line-height:1.05}
+.rc-title b{font-size:22px;color:var(--team);letter-spacing:.04em;filter:brightness(1.25)}
+.rc-title span{font-size:15px;font-weight:800;letter-spacing:.12em}
+.rc-strip{display:flex;align-items:center;gap:10px;padding:0 12px;height:40px;background:linear-gradient(90deg,transparent,var(--team) 30%,var(--team));}
+.rc-strip strong{font-size:34px;font-style:italic;color:#fff;text-shadow:0 2px 6px #0008}
+.rc-strip small{margin-left:auto;font-weight:800;letter-spacing:.1em;background:#05080ccc;padding:2px 6px;border-radius:2px}
+.rc-feed{padding:6px 12px 10px;min-height:20px}
+.rc-quote{margin:6px 0 0;font-size:14px;line-height:1.5;letter-spacing:.02em}
+.rc-quote.player{color:#ffd9a8}.rc-quote.engineer{color:#fff}
+.rc-quote:not(:last-child){opacity:.6;font-size:12px}
+.rc-drawer{border-top:1px solid var(--hud-line);padding:8px;max-height:44dvh;overflow:auto}
+.rc-topics,.rc-actions{display:grid;grid-template-columns:1fr 1fr;gap:4px}.rc-actions{grid-template-columns:1fr;margin-bottom:6px}.rc-actions:empty{display:none}
+.rc-drawer button{min-height:36px;padding:6px 8px;font-size:13px;border-radius:2px;background:#ffffff12;border:1px solid var(--hud-line);color:#fff;text-align:left}
+.rc-drawer button:hover{background:#ffffff26}.rc-drawer button.primary{background:#fff;color:#0b0f14;font-weight:800}
+
+/* 左下名牌 */
+.nameplate{position:absolute;left:16px;bottom:22px;display:flex;align-items:stretch;color:#fff;background:var(--hud-bg);border-radius:3px;overflow:hidden;box-shadow:0 6px 24px #0007}
+.np-pos{display:grid;place-items:center;min-width:44px;font-size:24px;background:#ffffff14}
+.np-who{display:flex;flex-direction:column;justify-content:center;padding:6px 12px;line-height:1.2}
+.np-name{font-size:20px;font-weight:800;letter-spacing:.06em}.np-team{font-size:12px;letter-spacing:.08em;opacity:.8}
+.np-number{display:grid;place-items:center;padding:0 14px;font-size:34px;font-style:italic;color:var(--team);filter:brightness(1.3);border-left:3px solid var(--team)}
+
+/* 右下儀表 */
+.gauge{position:absolute;right:20px;bottom:18px;width:200px;height:200px;color:#fff;pointer-events:none}
+.gauge svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 2px 6px #000a)}
+.g-track{stroke:#ffffff26;stroke-width:9}.g-speed{stroke:#1e7bff;stroke-width:9;transition:stroke-dasharray .08s linear}
+.g-rpm-track{stroke:#ffffff14;stroke-width:6}.g-rpm{stroke:#26e05a;stroke-width:6}.redline .g-rpm{stroke:#ff3b3b}
+.g-scale{fill:#fff;font:700 9px var(--hud-font);text-anchor:middle;opacity:.85}
+.g-readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-shadow:0 2px 6px #000;line-height:1}
+.g-speed-num{font-size:40px;font-variant-numeric:tabular-nums}.g-readout small{font-size:11px;letter-spacing:.14em;margin:2px 0 6px}
+.g-rpm-num{font-size:15px;font-variant-numeric:tabular-nums}.g-gear{font-size:34px;margin-top:6px;border:1px solid #ffffff66;border-radius:3px;min-width:34px;text-align:center;padding:2px 4px;background:#0006}
+.g-chips{position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);display:flex;gap:4px;white-space:nowrap}
+.g-chip{font-size:11px;font-weight:800;letter-spacing:.06em;padding:2px 6px;background:var(--hud-bg);border-radius:2px}
+.g-tyre{border-bottom:2px solid var(--tyre)}.g-mode[data-mode=push]{color:#ff8f8f}.g-mode[data-mode=conserve]{color:#8fe3ff}
+.g-drs{opacity:.3}.g-drs.on{opacity:1;background:#26e05a;color:#03140a}
+
+/* 其他 */
+.dnf-banner{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);padding:12px 26px;background:var(--hud-bg);color:#fff;font-size:22px;letter-spacing:.1em;border-left:5px solid var(--hud-red);pointer-events:none}
+.race-menu{position:absolute;top:58px;right:16px;z-index:12;background:#05080cf2;color:#fff;padding:18px;border:1px solid var(--hud-line);border-radius:3px;width:320px;max-width:calc(100% - 32px)}
+.race-hud[data-flag=yellow]::before{content:"";position:absolute;inset:0;border:4px solid #ffd400;pointer-events:none;animation:flash 1s steps(2) infinite}
+@keyframes flash{50%{opacity:.45}}
+@keyframes dropIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+
+/* 中尺寸：決策卡改放在計時塔右側 */
+@media(max-width:1100px){
+  .race-control{left:236px;transform:translateY(-8px);max-width:calc(100% - 236px - 360px)}.race-control.visible{transform:none}
+  .decision-host,.race-result{left:236px;right:282px;width:auto;transform:none}
+  .tv-bug{display:none}
+}
+/* 手機直式 */
+@media(max-width:760px){
+  .timing-tower{top:58px;left:8px;width:150px;font-size:12px}
+  .tt-head{padding:5px 7px;gap:6px}.tt-logo{font-size:14px}.tt-lap b{font-size:15px}.tt-lap{font-size:11px}
+  .tt-flag{font-size:11px;padding:2px}
+  .timing-row{height:21px;grid-template-columns:20px 3px 1fr auto;gap:5px;padding-right:6px}.tt-gap{font-size:10px}
+  .timing-row.far{display:none}
+  .race-controls{left:8px;right:8px;top:8px}.race-controls button{flex:1;padding:4px 6px;font-size:13px}
+  .race-control{top:auto;bottom:212px;max-width:calc(100% - 16px);font-size:12px;white-space:normal}
+  .decision-host,.race-result{left:8px;right:8px;top:58px;width:auto;transform:none}
+  .decision-card{background:#05080cf7}.decision-card h2{font-size:17px}.decision-card p{font-size:12px}
+  .dc-choices{grid-template-columns:1fr}.dc-choice{min-height:48px;padding:8px 10px}
+  .radio-card{top:58px;right:8px;left:166px;width:auto}
+  .radio-card:not(.live):not(.open){opacity:.75}
+  .rc-title{flex-direction:row;align-items:baseline;gap:8px;padding:5px 9px 3px}.rc-title b{font-size:15px}.rc-title span{font-size:11px}
+  .rc-strip{height:24px}.rc-strip strong{font-size:20px}.rc-strip small{font-size:10px}
+  .rc-feed{padding:2px 9px 6px}.rc-quote{font-size:12px}.rc-quote:not(:last-child){display:none}
+  .radio-card.open{left:8px;right:8px;z-index:6}
+  .nameplate{display:none}
+  .gauge{width:124px;height:124px;right:6px;bottom:14px}
+  .g-speed-num{font-size:24px}.g-readout small{font-size:8px;margin:1px 0 3px}.g-rpm-num{font-size:10px}.g-gear{font-size:20px;min-width:22px;margin-top:3px}
+  .g-chips{bottom:-12px}.g-chip{font-size:9px;padding:1px 4px}.g-scale{display:none}
+  .dnf-banner{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.tt-flag[data-kind=yellow],.race-hud[data-flag=yellow]::before,.hurry .dc-time{animation:none}.decision-card{animation:none}}
+
+/* 起跑程序：轉播式五盞紅燈＋起步按鈕 */
+.start-lights{position:absolute;top:64px;left:50%;transform:translateX(-50%);display:flex;gap:10px;padding:10px 14px;background:var(--hud-bg);border-radius:6px;pointer-events:none;transition:opacity .8s}
+.start-lights.out{opacity:0}
+.light-pod{display:grid;gap:6px;padding:6px;background:#0b0d10;border-radius:5px}
+.light-pod i{width:30px;height:30px;border-radius:50%;background:#2a0b0b;box-shadow:inset 0 0 6px #000}
+.light-pod.on i{background:radial-gradient(circle at 40% 35%,#ff9a8a,#ff1d0d 45%,#a10800);box-shadow:0 0 18px #ff2a1a,0 0 4px #ff8a7a}
+.start-panel{position:absolute;left:50%;top:150px;transform:translateX(-50%);display:grid;justify-items:center;gap:10px;width:min(420px,calc(100% - 32px));text-align:center}
+.start-hint{margin:0;padding:8px 14px;background:var(--hud-bg);color:#fff;font-size:15px;border-radius:3px}
+.start-button{min-width:200px;min-height:64px!important;font:900 26px var(--hud-font);letter-spacing:.2em;color:#0b0f14!important;background:#fff!important;border:0!important;border-radius:4px!important;box-shadow:0 8px 30px #0009}
+.start-button:active{transform:scale(.97)}
+@media(max-width:760px){.start-lights{top:auto;bottom:46%;gap:6px;padding:8px}.light-pod i{width:22px;height:22px}.start-panel{top:auto;bottom:30%}}
+
+/* 座艙排位 */
+.q-header{position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--hud-bg);color:#fff;border-radius:3px}
+.q-session{font-size:22px;letter-spacing:.06em}.q-phase{font-size:14px;letter-spacing:.1em;opacity:.85}
+.q-timer{position:absolute;top:16px;left:50%;transform:translateX(-50%);padding:6px 18px;background:var(--hud-bg);color:#fff;font:700 26px var(--hud-font);font-variant-numeric:tabular-nums;border-radius:3px;white-space:nowrap}
+.q-sectors{position:absolute;top:66px;left:50%;transform:translateX(-50%);display:flex;gap:4px}
+.q-sector{display:grid;justify-items:center;min-width:96px;padding:5px 10px;background:var(--hud-bg);color:#fff;border-bottom:4px solid #ffffff33;border-radius:2px}
+.q-sector small{font-size:11px;letter-spacing:.14em;opacity:.8}.q-sector b{font-size:18px;font-variant-numeric:tabular-nums}
+.q-sector.purple{border-color:#b04cff}.q-sector.purple b{color:#d7a6ff}
+.q-sector.green{border-color:#26e05a}.q-sector.green b{color:#7dff9e}
+.q-sector.yellow{border-color:#ffd400}.q-sector.yellow b{color:#ffe566}
+.q-board{position:absolute;top:70px;left:16px;width:230px;max-height:calc(100% - 100px);overflow:auto;background:var(--hud-bg);color:#fff;border-radius:3px}
+.q-board:not(:has(.q-row)){display:none}
+.q-board h3{margin:0;padding:8px 10px;font-size:14px;letter-spacing:.08em;border-bottom:1px solid var(--hud-line)}
+.q-row{display:grid;grid-template-columns:26px 4px 1fr auto;gap:7px;align-items:center;height:26px;padding-right:10px;font-size:13px;border-bottom:1px solid #ffffff0a}
+.q-row b{text-align:center}.q-row i{width:4px;height:15px;background:var(--team)}.q-row small{font-variant-numeric:tabular-nums;opacity:.9}
+.q-row.player{background:#fff;color:#0b0f14}.q-row.out{opacity:.5}.q-row.out b{color:#ff6b6b}
+.q-panel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,calc(100% - 32px));padding:20px;background:#05080ced;color:#fff;border-radius:4px;border-top:3px solid #ffd400;box-shadow:0 12px 40px #000a}
+.q-panel h2{font-size:22px;margin:0 0 8px}.q-panel p{margin:0 0 14px;font-size:14px;line-height:1.6;opacity:.85}
+.q-modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.q-mode{display:grid;gap:4px;text-align:left;background:#ffffff10!important;color:#fff!important;border:1px solid #ffffff2a!important;border-radius:3px!important;padding:10px!important}
+.q-mode strong{font-size:17px}.q-mode small{font-size:12px;line-height:1.45;color:#ffffffb0}
+.q-mode.active{background:#fff!important;color:#0b0f14!important}.q-mode.active small{color:#0b0f14b0}
+.q-go{width:100%;min-height:50px!important;font-size:17px!important}
+@media(max-width:760px){.q-header{top:8px;left:8px}.q-timer{top:56px;font-size:20px}.q-sectors{top:100px}.q-sector{min-width:72px;padding:4px 6px}.q-board{top:140px;width:160px;font-size:11px}.q-modes{grid-template-columns:1fr}}
+
+/* 轉播式 IN PIT 計時卡 */
+.pit-card{position:absolute;right:16px;top:118px;width:240px;color:#fff;background:var(--hud-bg);border-radius:3px;overflow:hidden;box-shadow:0 6px 24px #0007;z-index:3}
+.pc-head{display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid var(--hud-line);font-weight:800;letter-spacing:.06em}
+.pc-pos{min-width:22px;text-align:center}.pc-team{width:4px;height:16px;background:var(--team)}
+.pc-body{display:flex;align-items:baseline;justify-content:space-between;padding:6px 12px;font-weight:800;letter-spacing:.12em;font-size:15px}
+.pc-time{font-size:30px;font-variant-numeric:tabular-nums;letter-spacing:0}
+.race-hud:has(.pit-card:not([hidden])) .radio-card{top:220px}
+@media(max-width:760px){.pit-card{top:auto;bottom:150px;right:8px;width:170px}.pc-time{font-size:22px}}
+
+/* 開場轉播標題卡 */
+.title-card{position:absolute;left:50%;bottom:22%;transform:translateX(-50%);display:grid;justify-items:center;gap:2px;padding:14px 34px 16px;color:#fff;background:linear-gradient(90deg,transparent,#05080cdd 18%,#05080cdd 82%,transparent);text-align:center;pointer-events:none;animation:dropIn .5s ease-out;transition:opacity .6s}
+.title-card.out{opacity:0}
+.title-card small{font-size:13px;letter-spacing:.2em;opacity:.8}
+.title-card h2{margin:0;font:italic 900 40px/1.1 var(--hud-font);letter-spacing:.04em;text-transform:uppercase}
+.title-card span{font-size:14px;letter-spacing:.12em;opacity:.85}
+.title-card b{margin-top:6px;padding:3px 12px;font-size:16px;letter-spacing:.1em;background:var(--team);color:#0b0f14;border-radius:2px}
+/* 方格旗 */
+.chequer{position:absolute;inset:auto 0 26% 0;display:grid;justify-items:center;gap:8px;pointer-events:none}
+.chequer i{width:min(520px,80%);height:60px;background:repeating-conic-gradient(#fff 0 25%,#111 0 50%) 0 0/30px 30px;border-radius:3px;box-shadow:0 8px 30px #0008;animation:wave 1.1s ease-in-out infinite alternate;transform-origin:left center}
+.chequer b{padding:6px 18px;background:var(--hud-bg);color:#fff;font:900 24px var(--hud-font);letter-spacing:.12em}
+@keyframes wave{from{transform:skewY(-3deg) scaleX(.96)}to{transform:skewY(3deg) scaleX(1)}}
+@media(max-width:760px){.title-card h2{font-size:26px}.title-card{bottom:30%;padding:10px 18px}.chequer b{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.chequer i{animation:none}}

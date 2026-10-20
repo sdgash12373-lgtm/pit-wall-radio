@@ -1,0 +1,925 @@
+{
+  "generator": "Kokoro-82M v1.0 (Apache-2.0), local",
+  "voices": {
+    "engineer": "bm_george",
+    "player": "bm_lewis"
+  },
+  "lines": {
+    "radio_check": {
+      "speaker": "player",
+      "clips": [
+        {
+          "file": "radio_check_0.mp3",
+          "text": "Radio check."
+        }
+      ]
+    },
+    "loud_clear": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "loud_clear_0.mp3",
+          "text": "Loud and clear. Formation lap next, stay close and get some heat in those tyres."
+        },
+        {
+          "file": "loud_clear_1.mp3",
+          "text": "Loud and clear, mate. Formation lap coming up, work the tyres."
+        }
+      ]
+    },
+    "formation_weave": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "formation_weave_0.mp3",
+          "text": "Keep weaving, fronts are still cold."
+        },
+        {
+          "file": "formation_weave_1.mp3",
+          "text": "More heat in the fronts, keep working them."
+        }
+      ]
+    },
+    "formation_clutch": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "formation_clutch_0.mp3",
+          "text": "Clutch target forty five. Do one practice burnout."
+        },
+        {
+          "file": "formation_clutch_1.mp3",
+          "text": "Bite point forty five. Practice start when you can."
+        }
+      ]
+    },
+    "formation_mode": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "formation_mode_0.mp3",
+          "text": "Switch to start mode. Back to your grid slot."
+        },
+        {
+          "file": "formation_mode_1.mp3",
+          "text": "Start mode, start mode. Line it up in your box."
+        }
+      ]
+    },
+    "good_start": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "good_start_0.mp3",
+          "text": "Good start, good start. Keep it clean into turn one."
+        },
+        {
+          "file": "good_start_1.mp3",
+          "text": "Nice getaway. Stay out of trouble."
+        }
+      ]
+    },
+    "bad_start": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "bad_start_0.mp3",
+          "text": "Slow start, we lost a few. Plenty of time."
+        },
+        {
+          "file": "bad_start_1.mp3",
+          "text": "Bit of a bog down. Reset, long race ahead."
+        }
+      ]
+    },
+    "jump_start": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "jump_start_0.mp3",
+          "text": "Jump start. Five second penalty, we will deal with it."
+        }
+      ]
+    },
+    "overtake": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "overtake_0.mp3",
+          "text": "Car ahead is within a second. Go for it."
+        },
+        {
+          "file": "overtake_1.mp3",
+          "text": "You are close enough. Make the move if it is there."
+        },
+        {
+          "file": "overtake_2.mp3",
+          "text": "He is struggling on exit. Have a look."
+        }
+      ]
+    },
+    "defend": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "defend_0.mp3",
+          "text": "Car behind is closing. Defend the inside."
+        },
+        {
+          "file": "defend_1.mp3",
+          "text": "Pressure from behind. Protect the position."
+        },
+        {
+          "file": "defend_2.mp3",
+          "text": "Car behind has the overtake. Cover the line."
+        }
+      ]
+    },
+    "pit_window": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "pit_window_0.mp3",
+          "text": "Pit window is open. Box or stay out?"
+        },
+        {
+          "file": "pit_window_1.mp3",
+          "text": "Tyres are dropping off. Your call on the stop."
+        }
+      ]
+    },
+    "team_order": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "team_order_0.mp3",
+          "text": "Team order. Let your teammate through, please."
+        },
+        {
+          "file": "team_order_1.mp3",
+          "text": "We need the swap with your teammate this lap."
+        }
+      ]
+    },
+    "safety_car": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "safety_car_0.mp3",
+          "text": "Safety car, safety car. Box opportunity, box or stay out?"
+        },
+        {
+          "file": "safety_car_1.mp3",
+          "text": "Safety car deployed. Stop is cheaper now."
+        }
+      ]
+    },
+    "vsc": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "vsc_0.mp3",
+          "text": "Virtual safety car. Stay on the delta."
+        },
+        {
+          "file": "vsc_1.mp3",
+          "text": "V S C, V S C. Keep the delta positive."
+        }
+      ]
+    },
+    "green_flag": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "green_flag_0.mp3",
+          "text": "Green flag, green flag. Racing resumes."
+        },
+        {
+          "file": "green_flag_1.mp3",
+          "text": "Track is clear. Back to racing speed."
+        }
+      ]
+    },
+    "weather": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "weather_0.mp3",
+          "text": "Rain is getting heavier. Inters or stay out?"
+        },
+        {
+          "file": "weather_1.mp3",
+          "text": "Conditions are changing. Your call on the tyres."
+        }
+      ]
+    },
+    "drying": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "drying_0.mp3",
+          "text": "Track is drying. Slicks could work soon."
+        }
+      ]
+    },
+    "damage": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "damage_0.mp3",
+          "text": "We have damage on the car. Box for repairs or manage it?"
+        },
+        {
+          "file": "damage_1.mp3",
+          "text": "Front wing is damaged. Your call."
+        }
+      ]
+    },
+    "pass_done": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "pass_done_0.mp3",
+          "text": "Nice move, well done."
+        },
+        {
+          "file": "pass_done_1.mp3",
+          "text": "Great pass. Keep it going."
+        },
+        {
+          "file": "pass_done_2.mp3",
+          "text": "Beautiful. Position gained."
+        }
+      ]
+    },
+    "pass_fail": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "pass_fail_0.mp3",
+          "text": "Did not stick. Reset and try again."
+        },
+        {
+          "file": "pass_fail_1.mp3",
+          "text": "No way through this time. Look after the tyres."
+        }
+      ]
+    },
+    "defend_ok": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "defend_ok_0.mp3",
+          "text": "Position held. Good defence."
+        },
+        {
+          "file": "defend_ok_1.mp3",
+          "text": "Well defended. Focus on the exit."
+        }
+      ]
+    },
+    "defend_fail": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "defend_fail_0.mp3",
+          "text": "He is through. Regroup."
+        },
+        {
+          "file": "defend_fail_1.mp3",
+          "text": "Position lost. Plenty of laps left."
+        }
+      ]
+    },
+    "hold": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "hold_0.mp3",
+          "text": "Copy. Stay in the tow."
+        },
+        {
+          "file": "hold_1.mp3",
+          "text": "Understood. Wait for the next chance."
+        }
+      ]
+    },
+    "copy": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "copy_0.mp3",
+          "text": "Copy."
+        },
+        {
+          "file": "copy_1.mp3",
+          "text": "Copy that."
+        },
+        {
+          "file": "copy_2.mp3",
+          "text": "Understood."
+        }
+      ]
+    },
+    "hesitate": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "hesitate_0.mp3",
+          "text": "No answer from you. We will take the default."
+        },
+        {
+          "file": "hesitate_1.mp3",
+          "text": "Nothing from you, mate. Going with plan A."
+        }
+      ]
+    },
+    "box_now": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "box_now_0.mp3",
+          "text": "Box, box. Box this lap."
+        },
+        {
+          "file": "box_now_1.mp3",
+          "text": "Box box, box box. Confirm."
+        }
+      ]
+    },
+    "stay_out": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "stay_out_0.mp3",
+          "text": "Stay out, stay out."
+        },
+        {
+          "file": "stay_out_1.mp3",
+          "text": "Okay, stay out this lap."
+        }
+      ]
+    },
+    "pit_limiter": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "pit_limiter_0.mp3",
+          "text": "Pit limiter on."
+        },
+        {
+          "file": "pit_limiter_1.mp3",
+          "text": "Limiter, limiter."
+        }
+      ]
+    },
+    "good_stop": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "good_stop_0.mp3",
+          "text": "Good stop, good stop. Push now."
+        },
+        {
+          "file": "good_stop_1.mp3",
+          "text": "Great job by the boys. Go go go."
+        }
+      ]
+    },
+    "slow_stop": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "slow_stop_0.mp3",
+          "text": "Slow stop, sorry mate. Let us recover it."
+        }
+      ]
+    },
+    "overtake_mode": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "overtake_mode_0.mp3",
+          "text": "Overtake enabled. You have the overtake."
+        },
+        {
+          "file": "overtake_mode_1.mp3",
+          "text": "You have the overtake. Use it."
+        }
+      ]
+    },
+    "laps_10": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "laps_10_0.mp3",
+          "text": "Ten laps to go. Manage the tyres."
+        }
+      ]
+    },
+    "laps_5": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "laps_5_0.mp3",
+          "text": "Five laps to go. Keep it tidy."
+        }
+      ]
+    },
+    "laps_3": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "laps_3_0.mp3",
+          "text": "Three laps to go. Everything you have got."
+        }
+      ]
+    },
+    "laps_2": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "laps_2_0.mp3",
+          "text": "Two laps to go."
+        }
+      ]
+    },
+    "last_lap": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "last_lap_0.mp3",
+          "text": "Last lap. Last lap. Bring it home."
+        },
+        {
+          "file": "last_lap_1.mp3",
+          "text": "This is the last lap. Push."
+        }
+      ]
+    },
+    "you_are": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "you_are_0.mp3",
+          "text": "You are"
+        }
+      ]
+    },
+    "gap_ahead": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "gap_ahead_0.mp3",
+          "text": "Gap to the car ahead,"
+        }
+      ]
+    },
+    "gap_behind": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "gap_behind_0.mp3",
+          "text": "Car behind,"
+        }
+      ]
+    },
+    "seconds": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "seconds_0.mp3",
+          "text": "seconds."
+        }
+      ]
+    },
+    "more_than_three": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "more_than_three_0.mp3",
+          "text": "more than three seconds."
+        }
+      ]
+    },
+    "pace_good": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "pace_good_0.mp3",
+          "text": "Pace is good. Keep it up."
+        },
+        {
+          "file": "pace_good_1.mp3",
+          "text": "Good pace, you are the fastest car on track."
+        }
+      ]
+    },
+    "tyre_manage": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "tyre_manage_0.mp3",
+          "text": "Think about your rear tyres. Some management please."
+        }
+      ]
+    },
+    "penalty_5": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "penalty_5_0.mp3",
+          "text": "Five second penalty. Keep it clean."
+        }
+      ]
+    },
+    "penalty_10": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "penalty_10_0.mp3",
+          "text": "Ten second penalty. We will serve it."
+        }
+      ]
+    },
+    "track_limits": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "track_limits_0.mp3",
+          "text": "Track limits warning. Stay inside the lines."
+        }
+      ]
+    },
+    "retire": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "retire_0.mp3",
+          "text": "We need to retire the car. Pull over safely. Sorry mate."
+        }
+      ]
+    },
+    "chequered": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "chequered_0.mp3",
+          "text": "Chequered flag!"
+        }
+      ]
+    },
+    "thats": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "thats_0.mp3",
+          "text": "That's"
+        }
+      ]
+    },
+    "finish_points": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "finish_points_0.mp3",
+          "text": "Good points today. Well done."
+        },
+        {
+          "file": "finish_points_1.mp3",
+          "text": "Solid job, mate. Points in the bag."
+        }
+      ]
+    },
+    "finish_podium": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "finish_podium_0.mp3",
+          "text": "Podium! Fantastic job, mate!"
+        },
+        {
+          "file": "finish_podium_1.mp3",
+          "text": "What a drive! On the podium!"
+        }
+      ]
+    },
+    "finish_win": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "finish_win_0.mp3",
+          "text": "You won it! Get in there!"
+        }
+      ]
+    },
+    "finish_tough": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "finish_tough_0.mp3",
+          "text": "Tough one today. We will come back stronger."
+        }
+      ]
+    },
+    "player_thanks": {
+      "speaker": "player",
+      "clips": [
+        {
+          "file": "player_thanks_0.mp3",
+          "text": "That was tough, guys. Mega job. Thank you to everyone back at the factory."
+        },
+        {
+          "file": "player_thanks_1.mp3",
+          "text": "Thanks guys, good effort. Lets keep pushing."
+        }
+      ]
+    },
+    "ask_tyres": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "ask_tyres_0.mp3",
+          "text": "Tyres look okay. A few more laps in them."
+        },
+        {
+          "file": "ask_tyres_1.mp3",
+          "text": "Wear is building on the rears. Manage them."
+        }
+      ]
+    },
+    "ask_gap": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "ask_gap_0.mp3",
+          "text": "Gaps are stable. Keep the rhythm."
+        }
+      ]
+    },
+    "ask_strategy": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "ask_strategy_0.mp3",
+          "text": "Plan A is one stop. Window opens soon."
+        },
+        {
+          "file": "ask_strategy_1.mp3",
+          "text": "Stick to plan A for now."
+        }
+      ]
+    },
+    "ask_weather": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "ask_weather_0.mp3",
+          "text": "No rain expected for now."
+        },
+        {
+          "file": "ask_weather_1.mp3",
+          "text": "Rain could arrive in a few laps."
+        }
+      ]
+    },
+    "ask_rivals": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "ask_rivals_0.mp3",
+          "text": "Cars around you are on similar tyres."
+        }
+      ]
+    },
+    "push": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "push_0.mp3",
+          "text": "Copy, push now. Watch the tyres."
+        }
+      ]
+    },
+    "conserve": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "conserve_0.mp3",
+          "text": "Copy, lift and coast. Save the tyres."
+        }
+      ]
+    },
+    "extend": {
+      "speaker": "engineer",
+      "clips": [
+        {
+          "file": "extend_0.mp3",
+          "text": "Copy, we extend. Plan B."
+        }
+      ]
+    }
+  },
+  "numbers": {
+    "p_1": {
+      "file": "num_p_1.mp3",
+      "text": "P one."
+    },
+    "p_2": {
+      "file": "num_p_2.mp3",
+      "text": "P two."
+    },
+    "p_3": {
+      "file": "num_p_3.mp3",
+      "text": "P three."
+    },
+    "p_4": {
+      "file": "num_p_4.mp3",
+      "text": "P four."
+    },
+    "p_5": {
+      "file": "num_p_5.mp3",
+      "text": "P five."
+    },
+    "p_6": {
+      "file": "num_p_6.mp3",
+      "text": "P six."
+    },
+    "p_7": {
+      "file": "num_p_7.mp3",
+      "text": "P seven."
+    },
+    "p_8": {
+      "file": "num_p_8.mp3",
+      "text": "P eight."
+    },
+    "p_9": {
+      "file": "num_p_9.mp3",
+      "text": "P nine."
+    },
+    "p_10": {
+      "file": "num_p_10.mp3",
+      "text": "P ten."
+    },
+    "p_11": {
+      "file": "num_p_11.mp3",
+      "text": "P eleven."
+    },
+    "p_12": {
+      "file": "num_p_12.mp3",
+      "text": "P twelve."
+    },
+    "p_13": {
+      "file": "num_p_13.mp3",
+      "text": "P thirteen."
+    },
+    "p_14": {
+      "file": "num_p_14.mp3",
+      "text": "P fourteen."
+    },
+    "p_15": {
+      "file": "num_p_15.mp3",
+      "text": "P fifteen."
+    },
+    "p_16": {
+      "file": "num_p_16.mp3",
+      "text": "P sixteen."
+    },
+    "p_17": {
+      "file": "num_p_17.mp3",
+      "text": "P seventeen."
+    },
+    "p_18": {
+      "file": "num_p_18.mp3",
+      "text": "P eighteen."
+    },
+    "p_19": {
+      "file": "num_p_19.mp3",
+      "text": "P nineteen."
+    },
+    "p_20": {
+      "file": "num_p_20.mp3",
+      "text": "P twenty."
+    },
+    "gap_1": {
+      "file": "num_gap_1.mp3",
+      "text": "zero point one"
+    },
+    "gap_2": {
+      "file": "num_gap_2.mp3",
+      "text": "zero point two"
+    },
+    "gap_3": {
+      "file": "num_gap_3.mp3",
+      "text": "zero point three"
+    },
+    "gap_4": {
+      "file": "num_gap_4.mp3",
+      "text": "zero point four"
+    },
+    "gap_5": {
+      "file": "num_gap_5.mp3",
+      "text": "zero point five"
+    },
+    "gap_6": {
+      "file": "num_gap_6.mp3",
+      "text": "zero point six"
+    },
+    "gap_7": {
+      "file": "num_gap_7.mp3",
+      "text": "zero point seven"
+    },
+    "gap_8": {
+      "file": "num_gap_8.mp3",
+      "text": "zero point eight"
+    },
+    "gap_9": {
+      "file": "num_gap_9.mp3",
+      "text": "zero point nine"
+    },
+    "gap_10": {
+      "file": "num_gap_10.mp3",
+      "text": "one point zero"
+    },
+    "gap_11": {
+      "file": "num_gap_11.mp3",
+      "text": "one point one"
+    },
+    "gap_12": {
+      "file": "num_gap_12.mp3",
+      "text": "one point two"
+    },
+    "gap_13": {
+      "file": "num_gap_13.mp3",
+      "text": "one point three"
+    },
+    "gap_14": {
+      "file": "num_gap_14.mp3",
+      "text": "one point four"
+    },
+    "gap_15": {
+      "file": "num_gap_15.mp3",
+      "text": "one point five"
+    },
+    "gap_16": {
+      "file": "num_gap_16.mp3",
+      "text": "one point six"
+    },
+    "gap_17": {
+      "file": "num_gap_17.mp3",
+      "text": "one point seven"
+    },
+    "gap_18": {
+      "file": "num_gap_18.mp3",
+      "text": "one point eight"
+    },
+    "gap_19": {
+      "file": "num_gap_19.mp3",
+      "text": "one point nine"
+    },
+    "gap_20": {
+      "file": "num_gap_20.mp3",
+      "text": "two point zero"
+    },
+    "gap_21": {
+      "file": "num_gap_21.mp3",
+      "text": "two point one"
+    },
+    "gap_22": {
+      "file": "num_gap_22.mp3",
+      "text": "two point two"
+    },
+    "gap_23": {
+      "file": "num_gap_23.mp3",
+      "text": "two point three"
+    },
+    "gap_24": {
+      "file": "num_gap_24.mp3",
+      "text": "two point four"
+    },
+    "gap_25": {
+      "file": "num_gap_25.mp3",
+      "text": "two point five"
+    },
+    "gap_26": {
+      "file": "num_gap_26.mp3",
+      "text": "two point six"
+    },
+    "gap_27": {
+      "file": "num_gap_27.mp3",
+      "text": "two point seven"
+    },
+    "gap_28": {
+      "file": "num_gap_28.mp3",
+      "text": "two point eight"
+    },
+    "gap_29": {
+      "file": "num_gap_29.mp3",
+      "text": "two point nine"
+    },
+    "gap_30": {
+      "file": "num_gap_30.mp3",
+      "text": "three point zero"
+    }
+  }
+}
